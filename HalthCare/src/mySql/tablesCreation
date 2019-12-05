@@ -1,0 +1,87 @@
+#Create new database conference_reviews
+CREATE conference_reviews;
+
+#Select conference_reviews
+USE conference_reviews;
+
+#Create new table Author with email_address as primary key
+CREATE TABLE Author(
+	email_address VARCHAR(255) PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL
+    );
+    
+#Create new table Paper with id as primary key
+CREATE TABLE Paper(
+	id INT unsigned PRIMARY KEY AUTO_INCREMENT,
+	title VARCHAR(255) NOT NULL
+	abstract TEXT,
+	file_name VARCHAR(255) NOT NULL
+	);
+
+#CREATE new table Reviewer with email_address as primary key
+CREATE TABLE Reviewer(
+    email_address VARCHAR(255) PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    author_feedback TEXT,
+    commitee_feedback TEXT,
+    phone_number VARCHAR(13) NOT NULL,
+    affiliation VARCHAR(255) NOT NULL
+    );
+    
+#Create new table Topic with id as primary key
+CREATE TABLE Topic(
+    id INT unsigned PRIMARY KEY AUTO_INCREMENT,
+    topic_name VARCHAR(255) NOT NULL
+    );
+    
+#Create new table weak entity Review with id as primary key
+CREATE TABLE Review(
+    id INT unsigned PRIMARY KEY AUTO_INCREMENT,
+    recommendation TEXT,
+    merit_score TINYINT NOT NULL,
+    relevance_score TINYINT NOT NULL,
+    originality_score TINYINT NOT NULL,
+    paper_id INT unsigned NOT NULL,
+    reviewer_id VARCHAR(255) NOT NULL,
+    FOREIGN KEY (paper_id) REFERENCES Paper (id),
+    FOREIGN KEY (reviewer_id) REFERENCES Reviewer (email_address)
+    );
+
+#Create Author submits Paper relation
+CREATE TABLE Author_Submits_Paper(
+    author_id VARCHAR(255) NOT NULL,
+    paper_id INT unsigned NOT NULL,
+    FOREIGN KEY(author_id) REFERENCES Author(email_address),
+    FOREIGN KEY(paper_id) REFERENCES Paper(id),
+    UNIQUE(paper_id),
+    UNIQUE(author_id)
+    );
+
+#Create Paper is assigned to Reviewer relation
+CREATE TABLE Paper_Is_Assigned_To_Reviewer(
+    reviewer_id VARCHAR(255) NOT NULL,
+    paper_id INT unsigned NOT NULL,
+    FOREIGN KEY(reviewer_id) REFERENCES Reviewer (email_address),
+    FOREIGN KEY(paper_id) REFERENCES Paper(id)
+    );
+    
+#Create Reviewer has Topic relation
+CREATE TABLE Reviewer_Has_Topic(
+    reviewer_id VARCHAR(255) NOT NULL,
+    topic_id INT unsigned NOT NULL,
+    FOREIGN KEY(reviewer_id) REFERENCES Reviewer (email_address),
+    FOREIGN KEY(topic_id) REFERENCES Topic(id),
+    UNIQUE(topic_id)
+    );
+
+#Create Reviewer submits Review relation
+CREATE TABLE Reviewer_Submits_Review(
+    reviewer_id VARCHAR(255) NOT NULL,
+    review_id INT unsigned NOT NULL,
+    FOREIGN KEY (reviewer_id) REFERENCES Reviewer(email_address),
+    FOREIGN KEY (review_id) REFERENCES Review(id),
+    UNIQUE(review_id)
+    );
+    

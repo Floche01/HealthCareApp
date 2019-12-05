@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT list (wine+)>
+<!ELEMENT wine (name, type, country, grape, year, price, imported)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT grape (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT imported (#PCDATA)>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE list SYSTEM "wineStore.dtd">
+<list>
+  <wine>
+    <name>Il Bastardo</name>
+    <type>red</type>
+    <country>Italy</country>
+    <grape>Sangiovese</grape>
+    <year>2015</year>
+    <price>19.99</price>
+    <imported>true</imported>
+  </wine>
+  <wine>
+    <name>Atardi el tempranillo</name>
+    <type>red</type>
+    <country>Spain</country>
+    <grape>Grenache</grape>
+    <year>2014</year>
+    <price>31.50</price>
+    <imported>true</imported>
+  </wine>
+  <wine>
+    <name>Cune Monopole</name>
+    <type>white</type>
+    <country>Spain</country>
+    <grape>Macabeo</grape>
+    <year>2017</year>
+    <price>201.98</price>
+    <imported>true</imported>
+  </wine>
+  <wine>
+    <name>Chanteau de Landiras</name>
+    <type>red</type>
+    <country>France</country>
+    <grape>Bordeaux</grape>
+    <year>2009</year>
+    <price>54.99</price>
+    <imported>true</imported>
+  </wine>
+  <wine>
+    <name>Cakebread</name>
+    <type>white</type>
+    <country>United States</country>
+    <grape>Sauvignon blanc</grape>
+    <year>2016</year>
+    <price>78.99</price>
+    <imported>false</imported>
+  </wine>
+</list>

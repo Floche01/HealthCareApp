@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema">
+  <element name="list">
+    <complexType>
+      <sequence>
+        <element name="wine" minOccurs="0" maxOccurs="unbounded">
+          <complexType>
+            <sequence>
+              <element name="name" type="string"/>
+              <element name="type" type="string"/>
+              <element name="country">
+                <simpleType>
+                  <restriction base="string">
+                    <enumeration value="France"/>
+                    <enumeration value="Italy"/>
+                    <enumeration value="Spain"/>
+                    <enumeration value="Chile"/>
+                    <enumeration value="Argentina"/>
+                    <enumeration value="United States"/>
+                  </restriction>
+                </simpleType>
+              </element>
+              <element name="grape" type="string"/>
+              <element name="year">
+                <simpleType>
+                  <restriction base="integer">
+                    <minInclusive value="1900"/>
+                    <maxInclusive value="2019"/>
+                  </restriction>
+                </simpleType>
+              </element>
+              <element name="price">
+                <simpleType>
+                  <restriction base="decimal">
+                    <minExclusive value="0.0"/>
+                  </restriction>
+                </simpleType>
+              </element>
+              <element name="imported" type="boolean">
+              </element>
+            </sequence>
+          </complexType>
+        </element>
+      </sequence>
+    </complexType>
+  </element>
+</schema>
